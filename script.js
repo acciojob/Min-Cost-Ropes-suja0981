@@ -1,7 +1,5 @@
-function mincost(arr)
-{ 
-//write your code here
-	 let cost = 0;
+function mincost(arr) {
+    let cost = 0;
 
     while (arr.length > 1) {
         arr.sort((a, b) => a - b);
@@ -13,10 +11,22 @@ function mincost(arr)
         cost += sum;
 
         arr.push(sum);
-	}
-	return cost;
-// return the min cost
-  
+    }
+
+    return cost;
 }
 
-module.exports=mincost;
+function calculateCost() {
+    const input = document.getElementById("ropes").value;
+
+    const arr = input
+        .split(",")
+        .map(Number);
+
+    const cost = mincost(arr);
+
+    document.getElementById("result").textContent =
+        "Minimum Cost: " + cost;
+}
+
+module.exports = mincost;
